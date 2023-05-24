@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Favorite, Visibility, List, Star } from "@material-ui/icons";
 import { db } from "../auth/firebase.js";
+
+import { AiFillStar, AiOutlineUnorderedList, AiOutlineEye } from "react-icons/ai";
+import { MdFavorite } from "react-icons/md";
+
 import {
   collection,
   getDocs,
@@ -91,34 +94,34 @@ export default function FilmCard(props) {
             </div>
             <div className="flex gap-3 w-full h-12 mt-8 items-center justify-center">
               {filmIsListed ? (
-                <List
+                <AiOutlineUnorderedList
                   onClick={handleListClick}
                   className="hover:text-[#A1A1A1] cursor-pointer text-green-700 transition-all active:scale-90"
                 />
               ) : (
-                <List
+                <AiOutlineUnorderedList
                   onClick={handleListClick}
                   className="text-[#A1A1A1] cursor-pointer hover:text-green-700 transition-all active:scale-90"
                 />
               )}
               {filmIsLiked ? (
-                <Favorite
+                <MdFavorite
                   onClick={handleLikeClick}
                   className="cursor-pointer hover:text-[#A1A1A1] text-red-700 transition-all active:scale-90"
                 />
               ) : (
-                <Favorite
+                <MdFavorite
                   onClick={handleLikeClick}
                   className="text-[#A1A1A1] cursor-pointer hover:text-red-700 transition-all active:scale-90"
                 />
               )}
-              <Visibility
+              <AiOutlineEye
                 className="text-[#A1A1A1] cursor-pointer hover:text-white active:scale-90 transition-all"
                 onClick={handleVisibilityClick}
               />
             </div>
             <div className="flex mt-2 w-full gap-2 items-center justify-center">
-              <Star className="text-[#FFC700]" />
+              <AiFillStar className="text-[#FFC700]" />
               <span className="text-lg text-[#FFC700]">{props.rate}</span>
             </div>
           </div>

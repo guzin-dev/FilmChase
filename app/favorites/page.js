@@ -3,10 +3,13 @@
 import { useEffect, useState } from "react";
 import FilmCard from "../../components/FilmCard.js";
 import LateralMenu from "../../components/LateralMenu.js";
-import { Search, AccountCircle, FilterList } from "@material-ui/icons";
 import TopMenu from "@/components/TopMenu.js";
 import Modal from "@/components/Modal.js";
 import Loading from "@/components/Loading.js";
+
+import { AiOutlineSearch } from "react-icons/ai";
+import { MdAccountCircle } from "react-icons/md";
+
 import {
   collection,
   getDocs,
@@ -131,7 +134,7 @@ export default function Favorites() {
         ) : (
           <div className="flex w-full h-fit">
             <div className="flex items-center gap-2 w-full p-4 h-12 border-[#252525] border rounded-md hover:border-[#757575] transition-all">
-              <Search className="text-[#A1A1A1]"></Search>
+              <AiOutlineSearch className="text-[#A1A1A1]"></AiOutlineSearch>
               <input
                 className="font-mont bg-transparent w-full focus:outline-none text-white"
                 placeholder="Buscar por nome do filme"
@@ -139,7 +142,7 @@ export default function Favorites() {
               ></input>
             </div>
             <div className="h-12 w-12 flex items-center justify-center">
-              <AccountCircle className="text-[#A1A1A1]"></AccountCircle>
+              <MdAccountCircle className="text-[#A1A1A1]"></MdAccountCircle>
             </div>
           </div>
         )}

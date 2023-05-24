@@ -1,8 +1,9 @@
 "use client";
 
-import { Close } from "@material-ui/icons";
 import PrimaryButton from "./PrimaryButton";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function Filter(props) {
   const [filterList, setFilterList] = useState([]);
@@ -27,10 +28,10 @@ export default function Filter(props) {
     <div className="z-10 text-white font-mont w-96 h-fit bg-[#1F1F1F] absolute right-3 top-2 rounded-md p-4">
       <div className="flex items-center justify-between w-full">
         <p className="text-2xl font-semibold">Filtros</p>
-        <Close
+        <AiOutlineClose
           onClick={handleVisibilityClick}
           className="hover:text-red-600 transition-all active:scale-90 cursor-pointer"
-        ></Close>
+        ></AiOutlineClose>
       </div>
       <div className="flex flex-col w-full">
         <p className="text-[#cdcdcd]">Genêro</p>

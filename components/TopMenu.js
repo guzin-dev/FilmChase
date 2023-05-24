@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Explore, Favorite, List, ExitToApp } from "@material-ui/icons";
+
+import { AiOutlineUnorderedList } from "react-icons/ai";
+import { MdOutlineExplore, MdFavorite, MdOutlineExitToApp } from "react-icons/md";
 
 export default function TopMenu(props) {
   return (
@@ -17,7 +19,7 @@ export default function TopMenu(props) {
                   : "active:scale-90 hover:bg-slate-800  transition-all flex items-center p-3 rounded-md gap-2 cursor-pointer"
               }
             >
-              <Explore></Explore>
+              <MdOutlineExplore></MdOutlineExplore>
               <p className="font-bold">Buscar</p>
             </Link>
             <Link
@@ -28,7 +30,7 @@ export default function TopMenu(props) {
                   : "active:scale-90 hover:bg-slate-800  transition-all flex items-center p-3 rounded-md gap-2 cursor-pointer"
               }
             >
-              <Favorite></Favorite>
+              <MdFavorite></MdFavorite>
               <p className="font-bold">Curtidos</p>
             </Link>
             <Link
@@ -39,7 +41,7 @@ export default function TopMenu(props) {
                   : "active:scale-90 hover:bg-slate-800  transition-all flex items-center p-3 rounded-md gap-2 cursor-pointer"
               }
             >
-              <List></List>
+              <AiOutlineUnorderedList></AiOutlineUnorderedList>
               <p className="font-bold">Minha lista</p>
             </Link>
           </div>
@@ -49,7 +51,7 @@ export default function TopMenu(props) {
         href="/"
         className="active:scale-90 mt-4 mb-4 flex gap-2 p-3 rounded-md cursor-pointer hover:bg-slate-800 transition-all"
       >
-        <ExitToApp className="text-[#A1A1A1]"></ExitToApp>
+        <MdOutlineExitToApp className="text-[#A1A1A1]"></MdOutlineExitToApp>
         <p className="text-[#A1A1A1] font-bold">Sair da conta</p>
       </Link>
     </div>

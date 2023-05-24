@@ -1,7 +1,9 @@
 "use client";
-import { Close, Star } from "@material-ui/icons";
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
+
+import { AiFillStar } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function Modal(props) {
   const [film, setFilm] = useState({});
@@ -60,10 +62,10 @@ export default function Modal(props) {
           <div>
             <div className="flex items-center w-full justify-between p-4">
               <p className="text-xl font-semibold">Detalhes do filme</p>
-              <Close
+              <AiOutlineClose
                 onClick={handleVisibilityClick}
                 className="hover:text-red-600 transition-all active:scale-90 cursor-pointer"
-              ></Close>
+              ></AiOutlineClose>
             </div>
             <div className="w-full h-[1px] bg-white"></div>
             <div className="flex max-[500px]:p-0 p-4 h-[28rem]">
@@ -107,8 +109,10 @@ export default function Modal(props) {
                 <p className="mt-2">Data de lançamento</p>
                 <p>{film.release_date}</p>
                 <div className="flex mt-2 gap-2 items-center">
-                  <Star className="text-[#FFC700]" />
-                  <span className="text-lg text-[#FFC700]">{film.vote_average}</span>
+                  <AiFillStar className="text-[#FFC700]" />
+                  <span className="text-lg text-[#FFC700]">
+                    {film.vote_average}
+                  </span>
                 </div>
               </div>
             </div>

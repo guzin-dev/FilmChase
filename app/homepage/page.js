@@ -4,11 +4,13 @@ import { Fragment, useEffect, useState } from "react";
 import FilmCard from "../../components/FilmCard.js";
 import LateralMenu from "../../components/LateralMenu.js";
 import Filter from "@/components/Filter.js";
-import { Search, AccountCircle, FilterList } from "@material-ui/icons";
 import PrimaryButton from "@/components/PrimaryButton.js";
 import Modal from "@/components/Modal";
 import Loading from "@/components/Loading.js";
 import TopMenu from "@/components/TopMenu.js";
+
+import { AiOutlineSearch, AiOutlineUnorderedList } from "react-icons/ai";
+import { MdAccountCircle } from "react-icons/md";
 
 import { db } from "../../auth/firebase.js";
 import {
@@ -156,8 +158,8 @@ export default function Homepage() {
     }
   }, [page, search, filters]);
   useEffect(() => {
-    setPage(1)
-  }, [filters])
+    setPage(1);
+  }, [filters]);
   return (
     <Fragment>
       <main className="font-mont w-screen h-screen bg-[#161616] flex">
@@ -166,7 +168,7 @@ export default function Homepage() {
           <TopMenu homepage={true}></TopMenu>
           <div className="flex w-full h-fit">
             <div className="flex items-center gap-2 w-full p-4 h-12 border-[#252525] border rounded-md hover:border-[#757575] transition-all">
-              <Search className="text-[#A1A1A1]"></Search>
+              <AiOutlineSearch className="text-[#A1A1A1]"></AiOutlineSearch>
               <input
                 className="font-mont bg-transparent w-full focus:outline-none text-white"
                 placeholder="Buscar por nome do filme"
@@ -178,12 +180,12 @@ export default function Homepage() {
                 }}
               ></input>
               <div className="flex relative">
-                <FilterList
+                <AiOutlineUnorderedList
                   onClick={() =>
                     openFilters ? setOpenFilters(false) : setOpenFilters(true)
                   }
                   className="text-[#A1A1A1] cursor-pointer active:scale-90 transition-all hover:text-[#cdcdcd]"
-                ></FilterList>
+                ></AiOutlineUnorderedList>
                 {openFilters ? (
                   <Filter
                     onVisibilityClick={() => {
@@ -199,7 +201,7 @@ export default function Homepage() {
               </div>
             </div>
             <div className="h-12 w-12 flex items-center justify-center">
-              <AccountCircle className="text-[#A1A1A1]"></AccountCircle>
+              <MdAccountCircle className="text-[#A1A1A1]"></MdAccountCircle>
             </div>
           </div>
           {loading ? (
