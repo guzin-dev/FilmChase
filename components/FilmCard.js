@@ -25,10 +25,10 @@ export default function FilmCard(props) {
       let isLiked = false;
       let isListed = false;
       querySnapshot.forEach((doc) => {
-        if (doc.data().likedFilms.includes(props.id)) {
+        if (doc.data().likedFilms?.includes(props.id)) {
           isLiked = true;
         }
-        if (doc.data().listFilms.includes(props.id)) {
+        if (doc.data().listFilms?.includes(props.id)) {
           isListed = true;
         }
       });

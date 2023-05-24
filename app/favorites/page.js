@@ -68,7 +68,7 @@ export default function Favorites() {
         const likedFilms = doc.data().likedFilms || [];
         const userRef = doc.ref;
 
-        if (likedFilms.includes(filmId)) {
+        if (likedFilms?.includes(filmId)) {
           await updateDoc(userRef, {
             likedFilms: arrayRemove(filmId),
           });
@@ -90,7 +90,7 @@ export default function Favorites() {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach(async (doc) => {
         const listFilms = doc.data().listFilms || [];
-        if (listFilms.includes(filmId)) {
+        if (listFilms?.includes(filmId)) {
           await updateDoc(doc.ref, {
             listFilms: arrayRemove(filmId),
           });

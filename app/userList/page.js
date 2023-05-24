@@ -66,7 +66,7 @@ export default function UserList() {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach(async (doc) => {
         const likedFilms = doc.data().likedFilms || [];
-        if (likedFilms.includes(filmId)) {
+        if (likedFilms?.includes(filmId)) {
           await updateDoc(doc.ref, {
             likedFilms: arrayRemove(filmId),
           });
@@ -90,7 +90,7 @@ export default function UserList() {
         const listFilms = doc.data().listFilms || [];
         const userRef = doc.ref;
 
-        if (listFilms.includes(filmId)) {
+        if (listFilms?.includes(filmId)) {
           await updateDoc(userRef, {
             listFilms: arrayRemove(filmId),
           });

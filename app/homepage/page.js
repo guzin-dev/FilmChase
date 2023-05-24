@@ -38,8 +38,8 @@ export default function Homepage() {
     rating: 0,
   });
 
-  const token =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNzUxM2VhMDAxZDUyMTNkYjExMWQ4OTI5M2E0YjIyNCIsInN1YiI6IjY0NWNmZDFlMWI3MGFlMDBmZDZkNWUwNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MZUoMEgF3X1GkXtbYo8Y4kxSyQuNYBlL6f28bUM23Rk";
+  const token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNzUxM2VhMDAxZDUyMTNkYjExMWQ4OTI5M2E0YjIyNCIsInN1YiI6IjY0NWNmZDFlMWI3MGFlMDBmZDZkNWUwNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MZUoMEgF3X1GkXtbYo8Y4kxSyQuNYBlL6f28bUM23Rk";
+
   function getFilms() {
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=${token}&page=${page}&language=pt-BR`;
 
@@ -113,7 +113,7 @@ export default function Homepage() {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach(async (doc) => {
         const likedFilms = doc.data().likedFilms || [];
-        if (likedFilms.includes(filmId)) {
+        if (likedFilms?.includes(filmId)) {
           await updateDoc(doc.ref, {
             likedFilms: arrayRemove(filmId),
           });
@@ -134,7 +134,7 @@ export default function Homepage() {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach(async (doc) => {
         const listFilms = doc.data().listFilms || [];
-        if (listFilms.includes(filmId)) {
+        if (listFilms?.includes(filmId)) {
           await updateDoc(doc.ref, {
             listFilms: arrayRemove(filmId),
           });
@@ -150,7 +150,6 @@ export default function Homepage() {
   };
   useEffect(() => {
     setLoading(true);
-    console.log(filters);
     if (search === "") {
       getFilms();
     } else {
